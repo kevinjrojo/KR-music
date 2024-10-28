@@ -1,7 +1,7 @@
 import "./App.css";
 import { TargetMusic } from "./components/TargetMusic";
 import { songs } from "./components/Canciones.js";
-import React, { useState } from "react";
+import { useState } from "react";
 
 const App = () => {
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
