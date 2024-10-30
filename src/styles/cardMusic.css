@@ -56,3 +56,8 @@
   width: 20%;
   background-color: #1a202ba4;
 }
+@media (300px <= width <= 900px) {
+  .target-content {
+    width: 80%;
+  }
+}

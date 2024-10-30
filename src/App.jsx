@@ -4,10 +4,18 @@ import { songs } from "./components/Canciones.js";
 import { useState } from "react";
 
 const App = () => {
+  const imagePlay =
+    "https://www.dropbox.com/scl/fi/pxxfa3pmfa446z31l0wwq/boton-de-play-1.png?rlkey=lug2fd4gzhgyqldryovozjpbv&st=ig207ngw&dl=1";
+  const imagepause =
+    "https://www.dropbox.com/scl/fi/tmzhoquqoqs3bg6idja6t/boton-de-pausa.png?rlkey=z418mpnpej8w6hpzycjmnifzo&st=pzkh6xlp&dl=1";
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
+  const [playSong, setPlaySong] = useState(imagePlay);
+
+  const playPause = playSong ? imagePlay : imagepause;
 
   const handelPlay = () => {
     song.play();
+    setPlaySong(!playSong);
   };
 
   const handleNextSong = () => {
@@ -24,7 +32,7 @@ const App = () => {
   song.load();
 
   return (
-    <div>
+    <div className="body">
       <h1 className="title">REPRODUCTOR KR</h1>
       <TargetMusic
         image={currentSong.image}
@@ -37,11 +45,7 @@ const App = () => {
           className="song-left"
           src="https://www.dropbox.com/scl/fi/93x4ekxwuvpv3kwbpxc12/anterior-1.png?rlkey=pe7bl98rqnr2a5kuyjnq8alqt&st=s4ro36dq&dl=1"
         />
-        <img
-          onClick={handelPlay}
-          src="https://www.dropbox.com/scl/fi/pxxfa3pmfa446z31l0wwq/boton-de-play-1.png?rlkey=lug2fd4gzhgyqldryovozjpbv&st=ig207ngw&dl=1"
-          alt=""
-        />
+        <img onClick={handelPlay} src={playPause} alt="" />
         <img
           className="song-right"
           onClick={handleNextSong}
